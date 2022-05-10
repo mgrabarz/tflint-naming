@@ -1,5 +1,3 @@
-network.tf
-
 terraform {
   backend "azurerm" {
     resource_group_name  = "tflint"
