@@ -1,11 +1,12 @@
-
-#############################################################################
-# VARIABLES
-#############################################################################
-variable
-"resource_group_name" {
-  type = string
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "tflint"
+    storage_account_name = "tfmgrabarz"
+    container_name       = "tfstatedevops"
+    key                  = "tfstatedevops.tfstate"
+  }
 }
+
 provider "azurerm" {
   version = "=2.0.0"
   features {}
