@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    resource_group_name   = "tflint"
-    storage_account_name  = "tfmgrabarz"
-    container_name        = "tfstatedevops"
-    key                   = "tfstatedevops.tfstate"
+    resource_group_name  = "tflint"
+    storage_account_name = "tfmgrabarz"
+    container_name       = "tfstatedevops"
+    key                  = "tfstatedevops.tfstate"
   }
 }
 
@@ -13,8 +13,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name      = var.resource_group_name
-  location  = "West Europe"
+  name     = var.resource_group_name
+  location = "West Europe"
 }
 # Create a virtual network within the resource group
 resource "azurerm_virtual_network" "terraform" {
@@ -24,8 +24,8 @@ resource "azurerm_virtual_network" "terraform" {
   address_space       = ["10.10.0.0/24"]
 }
 resource "azurerm_subnet" "app-subnet" {
-  name                  = "appsubnet01"
-  resource_group_name   = azurerm_resource_group.rg.name
-  virtual_network_name  = azurerm_virtual_network.terraform.name
-  address_prefix        = "10.10.0.0/25"
+  name                 = "appsubnet01"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.terraform.name
+  address_prefix       = "10.10.0.0/25"
 }
