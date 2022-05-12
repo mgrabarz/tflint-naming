@@ -13,11 +13,10 @@ provider "azurerm" {
 }
 
 module "naming" {
-  source  = "Azure/naming/azurerm"
-  prefix  = ["bank"]
-  suffix  = [var.solution_stage, var.solution_name]
+  source = "Azure/naming/azurerm"
+  prefix = ["bank"]
+  suffix = [var.solution_stage, var.solution_name]
 }
-
   
 resource "azurerm_resource_group" "rg" {
   name     = module.naming.resource_group.name
