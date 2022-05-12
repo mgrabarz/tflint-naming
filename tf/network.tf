@@ -29,13 +29,13 @@ resource "azurerm_virtual_network" "vnet1" {
   address_space       = ["10.10.0.0/24"]
 }
 resource "azurerm_subnet" "app-subnet" {
-  name                 = concat(module.naming.subnet.name, "-app")
+  name                 = join("-", [module.naming.subnet.name, "app"])
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefix       = "10.10.0.0/25"
 }
 resource "azurerm_subnet" "pe-subnet" {
-  name                 = concat(module.naming.subnet.name, "-pe")
+  name                 = join("-", [module.naming.subnet.name, "pe"])
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefix       = "10.10.0.128/25"
