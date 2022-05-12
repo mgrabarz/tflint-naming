@@ -4,7 +4,7 @@ variable "solution_stage" {
   default = "prod"
 }
 
-variable "var.solution_name" {
+variable "solution_name" {
   type    = string
   default = "myapp"
 }
