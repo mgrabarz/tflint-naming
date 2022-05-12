@@ -1,10 +1,10 @@
 
-variable "resource_group_name" {
+variable "solution_stage" {
   type    = string
-  default = "terraform-rg01"
+  default = "prod"
 }
 
-variable "virtual_network_name" {
+variable "var.solution_name" {
   type    = string
-  default = "terraform-vnet01"
+  default = "myapp"
 }
