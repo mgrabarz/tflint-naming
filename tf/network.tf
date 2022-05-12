@@ -14,7 +14,7 @@ provider "azurerm" {
 
 module "naming" {
   source  = "Azure/naming/azurerm"
-  prefix = [ "bank" ]
+  prefix  = ["bank"]
   suffix  = [var.solution_stage, var.solution_name]
 }
 
